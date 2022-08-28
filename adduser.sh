@@ -14,6 +14,10 @@ then
         echo $first_name "\n"
         last_name=${fullname##*[[:space:]]}
         echo $last_name
+        sudo dscl . -create /Users/"$username"
+        sudo dscl . -create /Users/"$username" UserShell /bin/bash
+        sudo dscl . -create /Users/"$username" RealName ""$fullname""
+
     else
         echo "Invalid fullname. The Firstname has to start with a capital letter, as well as the lastname.\n Inbetween there also should be a space."
     fi
